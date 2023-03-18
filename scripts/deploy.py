@@ -1,15 +1,12 @@
-from brownie import Miracle, Greet,accounts
+from brownie import MiracleNew, Greet,accounts
 import ipfshttpclient
 
 def main():
     #get_article()
-    message=deploy_miracle()
-    print("Deployed the contract : Miracle!!!")
-
-def deploy_miracle():
     account = accounts.load("ganache")
-    miracle = Miracle.deploy({"from":account})
-    return miracle
+    miracle = MiracleNew.deploy("Miracle","MRCL",0,{"from":account})
+    print(miracle)
+    print("Deployed the contract : Miracle!!!")
 
 def deploy():
     account = accounts.load("ganache")
