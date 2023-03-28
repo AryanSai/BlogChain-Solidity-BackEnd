@@ -1,6 +1,8 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
+//this contract is independent of the MiracleToken contract 
+
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Miracle{
@@ -19,14 +21,6 @@ contract Miracle{
         string cid;
         uint256 tipAmount;
     }
-
-    event ArticlePublished(
-        uint8 id
-    );
-
-    event ArticleTipped(
-        uint8 id
-    );
 
     function mapGetter(uint256 id) public view returns(Article memory) 
     {
@@ -51,21 +45,18 @@ contract Miracle{
             _ipfsCID,
             0
         );
-        // Trigger an event
-        emit ArticlePublished(1);
     }
 
-    function tipWriter(uint256 _id) public payable {
-        require(_id > 0 && _id <= articleIdCounter.current());
+    function tipWriter(uint256 _id,uint256 _amount) public payable {
+        require(_id <= articleIdCounter.current());
+        
         //get the article
         Article memory _article = articles[_id];
-        //get the writer address
-        address payable _writer = _article.writer;
-        //pay the writer
-        _writer.transfer(msg.value);
-        _article.tipAmount = _article.tipAmount + msg.value;
+
+        //add the tipamount
+        _article.tipAmount = _article.tipAmount + _amount;
+
         //update the article info
         articles[_id] = _article;
-        emit ArticleTipped(1);
     }
 }
