@@ -1,4 +1,4 @@
-from brownie import accounts,Miracle,MiracleToken
+from brownie import accounts,BlogChain,BlogToken
 
 def main():
     #get_article()
@@ -7,17 +7,17 @@ def main():
     account3 = accounts.load("aryan2")
 
     #brownie run deploy.py --network ganache
-    miracle=Miracle.deploy({"from":account1})
-    print("Deployed the contract : Miracle at ",miracle) 
-    #0x887dc58eA184F9739344BF9aa1C2deb5935d5763
+    blogchain=BlogChain.deploy({"from":account1})
+    print("Deployed the contract : BlogChain at ",blogchain) 
+    #0x9343B2826DC07D3CF0901A19AD7792e509F0015a
 
-    token= MiracleToken.deploy({"from":account1})
-    print("Deployed the contract : MiracleToken at ",token)
-    #0x120D32FF3881652687DBf62d6ffB364445aA0E2f
+    blogtoken= BlogToken.deploy({"from":account1})
+    print("Deployed the contract : BlogToken at ",blogtoken)
+    #0xEfeEde1AA8d7F1d527C301A851F6E45CBc7132e2
 
-    print('Transfer: ',token.transfer(account2,10000000,{"from":account1}))
-    print('Transfer: ',token.transfer(account3,10000000,{"from":account1}))
+    print('Transfer: ',blogtoken.transfer(account2,10000000,{"from":account1}))
+    print('Transfer: ',blogtoken.transfer(account3,10000000,{"from":account1}))
 
-    print('account1 : ',token.balanceOf(account1,{"from":account1}))
-    print('account2 : ',token.balanceOf(account2,{"from":account1}))
-    print('account3 : ',token.balanceOf(account3,{"from":account1}))
+    print('account1 : ',blogtoken.balanceOf(account1,{"from":account1}))
+    print('account2 : ',blogtoken.balanceOf(account2,{"from":account1}))
+    print('account3 : ',blogtoken.balanceOf(account3,{"from":account1}))
