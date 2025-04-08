@@ -5,6 +5,7 @@ This work proposes a Write-to-Earn decentralised application called BlogChain to
 Code for the front-end is available here: https://github.com/AryanSai/BlogChain-FrontEnd
 
 ## Publication
-A Decentralized Blogging Platform Powered by Blockchain
+
+### A Decentralized Blogging Platform Powered by Blockchain
 
 🔗 Published at Gradiva Review Journal · Jun 12, 2024: https://drive.google.com/file/d/1L4olYzLllUQlov0KoZaCj9Gv4yu05liq/view
